@@ -9,27 +9,41 @@ const componentRoutes = {
 	path: '/',
 	indexRoute: { component: Main },
 	childRoutes: [
-		// {
-		// 	path: 'artists/new',
-		// 	getComponent(location, cb) {
-		// 		System.import('./components/artists/ArtistCreate')
-		// 			.then(module => cb(null, module.default));
-		// 	}
-		// },
-		// {
-		// 	path: 'artists/:id',
-		// 	getComponent(location, cb) {
-		// 		System.import('./components/artists/ArtistDetail')
-		// 			.then(module => cb(null, module.default));
-		// 	}
-		// },
-		// {
-		// 	path: 'artists/:id/edit',
-		// 	getComponent(location, cb) {
-		// 		System.import('./components/artists/ArtistEdit')
-		// 			.then(module => cb(null, module.default));
-		// 	}
-		// }
+		{
+			path: '/story',
+			getComponent(location, cb) {
+				System.import('./components/Story')
+					.then(module => cb(null, module.default));
+			}
+		},
+		{
+			path: '/festivities',
+			getComponent(location, cb) {
+				System.import('./components/Festivities')
+					.then(module => cb(null, module.default));
+			}
+		},
+		{
+			path: '/location',
+			getComponent(location, cb) {
+				System.import('./components/Location')
+					.then(module => cb(null, module.default));
+			}
+		},
+		{
+			path: '/rsvp',
+			getComponent(location, cb) {
+				System.import('./components/Rsvp')
+					.then(module => cb(null, module.default));
+			}
+		},
+		{
+			path: '/registry',
+			getComponent(location, cb) {
+				System.import('./components/Registry')
+					.then(module => cb(null, module.default));
+			}
+		}
 	]
 };
 

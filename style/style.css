@@ -2,6 +2,339 @@
   margin: 0;
   padding: 0;
 }
-header {
-  background-color: pink;
+.site {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.content {
+  min-height: calc(100vh - 70px);
+}
+footer {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #222;
+  color: #E9E9E9;
+  font-weight: 100;
+}
+footer a {
+  color: tomato;
+  text-decoration: none;
+}
+.navigationList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navigationList li {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navigationList li a {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #222;
+}
+.active {
+  color: red !important;
+}
+.naviButtonHolder {
+  display: none !important;
+}
+.img-kissBeach {
+  width: 100%;
+}
+.mainHeading {
+  position: absolute;
+  top: 140px;
+  left: 140px;
+  text-align: center;
+  font-weight: 100;
+  color: #222;
+  z-index: 9;
+}
+.mainHeading h1 {
+  font-weight: 100;
+  font-size: 50px;
+}
+.mainHeading h2 {
+  margin: 15px 0;
+  font-weight: 100;
+  font-size: 38px;
+}
+.mainHeading h3 {
+  font-weight: 100;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+.colorRed {
+  color: red;
+}
+.story, .registry, .location, .rsvp, .festivities {
+  padding: 50px 25px;
+  border: 1px solid blue;
+}
+.story h2, .registry h2, .location h2, .rsvp h2, .festivities h2 {
+  font-weight: 100;
+  font-size: 35px;
+  text-align: center;
+  padding-bottom: 50px;
+}
+.photos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.photos div {
+  width: 300px;
+  margin: 5px;
+}
+.photos div img {
+  width: 100%;
+}
+.quote {
+  padding: 50px 5px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.address, .dateAndTime, .nearby {
+  padding: 0;
+}
+.headingSub {
+  padding-top: 25px;
+  padding-bottom: 15px;
+  font-weight: 200;
+  color: red;
+}
+.nearby h4 {
+  padding-bottom: 10px;
+  font-weight: 200;
+}
+.barsHeading {
+  padding-top: 15px;
+}
+.countdown {
+  text-align: center;
+  padding: 50px 10px;
+}
+.countdown h2 {
+  font-weight: 100;
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+.countdown h3 {
+  font-weight: 100;
+  font-size: 25px;
+}
+.dateAndTime .countdown h2 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.rsvpTop {
+  text-align: center;
+}
+.rsvpButtom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+.yesButton, .noButton {
+  padding: 10px 15px;
+  margin: 25px;
+  background: transparent;
+  color: white;
+  font-size: 22px;
+  border: none;
+  border-radius: 4px;
+}
+.yesButton {
+  background: green;
+}
+.noButton {
+  background: red;
+}
+.selectPar {
+  text-align: center;
+}
+form {
+  border: 1px solid red;
+  width: 350px;
+}
+form h3 {
+  text-align: center;
+}
+label {
+  display: block;
+  padding: 2px 5px 0 5px;
+}
+input, textarea {
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 2px 5px;
+  width: 43%
+}
+textarea {
+  width: 91%;
+}
+.checkbox {
+  width: 20px;
+  margin: 15px 0 15px 5px;
+}
+.plusOnePar {
+  padding: 15px 5px;
+}
+.submitButton {
+  color: white;
+  font-size: 22px;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+}
+.plusOneBtn {
+  background: dodgerblue;
+}
+.comingBtn {
+  background: green;
+}
+.notComingBtn {
+  background: red;
+}
+.rsvpAnswer {
+  text-align: center;
+  padding: 15px 5px;
+}
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+/* ====================================================== SMALL SCREENS ======================================================================== */
+
+@media(max-width: 1093px) {
+    .mainHeading {
+        top: 90px;
+        left: 90px;
+    }
+}
+@media(max-width: 945px) {
+  .mainHeading {
+    top: 100px;
+    left: 100px;
+  }
+  .mainHeading h1 {
+    font-size: 35px;
+  }
+  .mainHeading h2 {
+    font-size: 28px;
+  }
+  .mainHeading h3 {
+    font-size: 20px;
+  }
+}
+@media(max-width: 779px) {
+  .mainHeading {
+    top: 90px;
+    left: 90px;
+  }
+  .mainHeading h1 {
+    font-size: 30px;
+  }
+  .mainHeading h2 {
+    font-size: 23px;
+  }
+  .mainHeading h3 {
+    font-size: 18px;
+  }
+}
+@media(max-width: 673px) {
+  nav {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    background: white;
+    padding-bottom: 5px;
+  }
+  .naviButtonHolder {
+    display: block !important;
+    width: 100%;
+    text-align: right;
+  }
+  .navigationList {
+    flex-direction: column;
+  }
+  .navigationList li {
+    width: 100%;
+  }
+  .naviLinkHolder {
+    display: none !important;
+  }
+  .navigationList li a {
+    width: 100%;
+    text-align: center;
+  }
+  .naviButton {
+    font-size: 28px;
+    padding: 5px;
+    margin-right: 5px;
+    border: none;
+    background: transparent;
+    outline: none;
+  }
+  .displayFlex {
+    display: flex !important;
+  }
+  main .countdown {
+    padding-top: 100px;
+    padding-bottom: 0;
+  }
+  .mainHeading {
+    top: 60px;
+    left: 40px;
+  }
+  .mainHeading h1 {
+    font-size: 30px;
+  }
+  .mainHeading h2 {
+    font-size: 23px;
+  }
+  .mainHeading h3 {
+    font-size: 18px;
+  }
+}
+@media(max-width: 618px) {
+  .mainHeading {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 30px 5px;
+    border-bottom: 1px solid #222;
+  }
+  main .countdown {
+    padding: 30px 5px;
+  }
+}
+@media(max-width: 480px) {
+  .andSep {
+    display: block;
+  }
+  .countdown h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  .countdown h3 {
+    font-size: 18px;
+  }
+  .yesButton, .noButton {
+    margin: 5px;
+    font-size: 16px;
+    padding: 5px 10px;
+  }
 }

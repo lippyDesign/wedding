@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import Navigation from './Navigation';
 
 class Header extends Component {
 	render() {
 		return (
 			<header>
-				<h1>Header Section</h1>
+				<Navigation />
 			</header>
 		);
 	}
