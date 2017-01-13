@@ -74,7 +74,6 @@ footer a {
 }
 .story, .registry, .location, .rsvp, .festivities {
   padding: 50px 25px;
-  border: 1px solid blue;
 }
 .story h2, .registry h2, .location h2, .rsvp h2, .festivities h2 {
   font-weight: 100;
@@ -164,7 +163,6 @@ footer a {
   text-align: center;
 }
 form {
-  border: 1px solid red;
   width: 350px;
 }
 form h3 {
@@ -197,6 +195,7 @@ textarea {
   border: none;
   border-radius: 4px;
   padding: 10px 15px;
+  width: 200px;
 }
 .plusOneBtn {
   background: dodgerblue;
@@ -214,6 +213,12 @@ textarea {
 button {
   cursor: pointer;
   outline: none;
+}
+.textCenter {
+  text-align: center;
+}
+.notComingEmailInput {
+  width: 92%;
 }
 
 /* ====================================================== SMALL SCREENS ======================================================================== */
@@ -336,5 +341,10 @@ button {
     margin: 5px;
     font-size: 16px;
     padding: 5px 10px;
+  }
+}
+@media(max-width: 400px) {
+  .rsvp {
+    padding: 50px 0;
   }
 }

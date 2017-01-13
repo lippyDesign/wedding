@@ -43,6 +43,13 @@ const componentRoutes = {
 				System.import('./components/Registry')
 					.then(module => cb(null, module.default));
 			}
+		},
+		{
+			path: '/admin',
+			getComponent(location, cb) {
+				System.import('./components/Admin')
+					.then(module => cb(null, module.default));
+			}
 		}
 	]
 };

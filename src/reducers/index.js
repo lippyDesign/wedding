@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import HelperReducer from './HelperReducer';
-import FormReducer from './FormReducer';
+import RsvpFormReducer from './RsvpFormReducer';
+import LoginReducer from './LoginReducer';
 
 const rootReducer = combineReducers({
     helper: HelperReducer,
-    form: FormReducer
+    rsvp: RsvpFormReducer,
+    login: LoginReducer
 });
 
 export default rootReducer;
