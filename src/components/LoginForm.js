@@ -3,14 +3,17 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 class LoginForm extends Component {
-
-    renderButton() {
-        
+    submitForm(event) {
+        event.preventDefault();
+        const { loginEmail, loginPassword } = this.props;
+        this.props.loginUser({ loginEmail, loginPassword });
     }
 
 	render() {
+        const btn = this.props.spinner ? <i className="fa fa-circle-o-notch fa-spin"></i> : 'Login';
+        
 		return (
-			<form className="loginForm">
+            <form className="loginForm" onSubmit={this.submitForm.bind(this)}>
 				<h3>Admin Sign In</h3>
                 <div>
                     <label>Email</label>
@@ -22,7 +25,7 @@ class LoginForm extends Component {
                     />
                 </div>
                 <div>
-                    <label>Email</label>
+                    <label>Password</label>
                     <input
                         type="password"
                         placeholder="Password"
@@ -30,16 +33,17 @@ class LoginForm extends Component {
                         onChange={event => this.props.loginPasswordChanged(event.target.value)}
                     />
                 </div>
-                <button className="submitButton comingBtn">Login</button>
+                <p className="colorRed">{this.props.error}</p>
+                <button className="submitButton comingBtn">{btn}</button>
 			</form>
 		);
 	}
 }
 
 const mapStateToProps = state => {
-    const { loginEmail, loginPassword } = state.login;
+    const { loginEmail, loginPassword, error, spinner } = state.login;
 
-    return { loginEmail, loginPassword };
+    return { loginEmail, loginPassword, error, spinner };
 };
 
 export default connect(mapStateToProps, actions)(LoginForm);

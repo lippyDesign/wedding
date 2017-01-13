@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import firebase from 'firebase';
+import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
 import Dashboard from './Dashboard';
 
 class Admin extends Component {
 
     renderAdminScreen() {
-        const { currentUser } = firebase.auth();
-        if (!currentUser) {
+        const { user } = this.props;
+        if (!user) {
             return <LoginForm />;
         }
         return <Dashboard />;
@@ -22,4 +22,9 @@ class Admin extends Component {
 	}
 }
 
-export default Admin;
+const mapStateToProps = state => {
+    const { user } = state.login;
+    return { user };
+};
+
+export default connect(mapStateToProps, null)(Admin);

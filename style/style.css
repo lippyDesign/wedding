@@ -72,6 +72,9 @@ footer a {
 .colorRed {
   color: red;
 }
+.colorGreen {
+  color: green;
+}
 .story, .registry, .location, .rsvp, .festivities {
   padding: 50px 25px;
 }
@@ -220,6 +223,48 @@ button {
 .notComingEmailInput {
   width: 92%;
 }
+.admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginForm {
+  padding: 60px 0;
+  text-align: center;
+}
+.loginForm label {
+  text-align: left;
+  display: block;
+  padding-left: 11px;
+}
+.loginForm input {
+  width: 92%;
+}
+.loginForm button {
+  margin: 15px 0 0 0;
+
+}
+.dashboard {
+  border: 1px solid blue;
+  width: 100%;
+  padding: 60px 0;
+}
+.dashboard h2 {
+  text-align: center;
+  padding: 30px 5px;
+}
+.dashboard h3 {
+  padding: 10px;
+}
+.guestList {
+  padding: 15px 30px;
+}
+.guestList li {
+  padding: 10px 5px;
+}
+.guestList li:nth-child(2) {
+    background: lightgray;
+}
 
 /* ====================================================== SMALL SCREENS ======================================================================== */
 
@@ -346,5 +391,10 @@ button {
 @media(max-width: 400px) {
   .rsvp {
     padding: 50px 0;
+  }
+}
+@media(max-width: 350px) {
+  footer {
+    font-size: 14px;
   }
 }
