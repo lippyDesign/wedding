@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const mailConfig = require('./src/mailConfig');
 
 const app = express();
 
@@ -54,7 +53,13 @@ app.post('/contactus', (req, res) => {
         `
     };
     // create reusable transporter object using SMTP transport 
-    const transporter = nodemailer.createTransport(mailConfig);
+    const transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: 'vololipu@gmail.com',
+            pass: 'Number1fan!'
+        }
+    });
 
     const sendEmailPlease = () => {
         // send mail with defined transport object 
