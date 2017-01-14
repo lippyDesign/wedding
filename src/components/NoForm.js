@@ -1,32 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/FirebaseActions';
+import * as actions from '../actions';
 
 class NoForm extends Component {
-    constructor() {
-        super();
-        this.state = {
-            first: '',
-            last: '',
-            email: '',
-            comments: '',
-            error: '',
-            showSpinner: false
-        };
-    }
-
     submitForm(event) {
         event.preventDefault();
-        const { first, last, email } = this.state;
-        const check = [first, last, email].every(item => item);
+        const { firstNot, lastNot, emailNot, commentsNot } = this.props;
+        const check = [firstNot, lastNot, emailNot].every(item => item);
         if (!check) {
-            return this.setState({ error: 'name and contact info are required' });
+            return this.props.errorChanged('full name and email are required');
         }
-        this.setState({ error: '', showSpinner: true });
+        this.props.createNotComing({ firstNot, lastNot, emailNot, commentsNot });
     }
 
 	render() {
-        const btnTitle = this.state.showSpinner ? <i className="fa fa-circle-o-notch fa-spin"></i> : 'Not Coming';
+        const btnTitle = this.props.spinner ? <i className="fa fa-circle-o-notch fa-spin"></i> : 'Not Cominng';
 		return (
             <form onSubmit={this.submitForm.bind(this)}>
                 <h3>Sorry to hear that!</h3>
@@ -35,14 +23,14 @@ class NoForm extends Component {
                     <input
                         type="text"
                         placeholder="First"
-                        value={this.state.first}
-                        onChange={event => this.setState({ first: event.target.value })}
+                        value={this.props.firstNot}
+                        onChange={event => this.props.notComingFirstChanged(event.target.value)}
                     />
                     <input
                         type="text"
                         placeholder="Last"
-                        value={this.state.last}
-                        onChange={event => this.setState({ last: event.target.value })}
+                        value={this.props.lastNot}
+                        onChange={event => this.props.notComingLastChanged(event.target.value)}
                     />
                 </div>
                 <div>
@@ -51,8 +39,8 @@ class NoForm extends Component {
                         className="notComingEmailInput"
                         type="email"
                         placeholder="email"
-                        value={this.state.email}
-                        onChange={event => this.setState({ email: event.target.value })}
+                        value={this.props.emailNot}
+                        onChange={event => this.props.notComingEmailChanged(event.target.value)}
                     />
                 </div>
                 <div>
@@ -62,11 +50,11 @@ class NoForm extends Component {
                     <textarea
                         type="text"
                         placeholder="Please tell us why"
-                        value={this.state.comments}
-                        onChange={event => this.setState({ comments: event.target.value })}
+                        value={this.props.commentsNot}
+                        onChange={event => this.props.notComingCommentsChanged(event.target.value)}
                     ></textarea>
                 </div>
-                <p className="colorRed textCenter">{this.state.error}</p>
+                <p className="colorRed textCenter">{this.props.error}</p>
                 <div className="rsvpAnswer">
                     <button className="submitButton notComingBtn">{btnTitle}</button>
                 </div>
@@ -75,4 +63,11 @@ class NoForm extends Component {
 	}
 }
 
-export default connect(null, actions)(NoForm);
+const mapStateToProps = state => {
+    const { firstNot, lastNot, emailNot, commentsNot } = state.rsvp;
+    const { spinner, error } = state.helper;
+
+    return { firstNot, lastNot, emailNot, commentsNot, error, spinner };
+};
+
+export default connect(mapStateToProps, actions)(NoForm);

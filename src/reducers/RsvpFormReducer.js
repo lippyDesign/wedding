@@ -8,7 +8,12 @@ import {
     RSVP_VEGGIE_UPDATE,
     SHOW_COMING_FORM,
     SHOW_NOT_COMING_FORM,
-    COMING_SUBMITTED
+    COMING_SUBMITTED,
+    NOT_COMMENTS_UPDATE,
+    NOT_EMAIL_UPDATE,
+    NOT_LAST_UPDATE,
+    NOT_FIRST_UPDATE,
+    NOT_COMING_SUBMITTED
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -19,7 +24,11 @@ const INITIAL_STATE = {
     comments: '',
     vegetarian: false,
     error: '',
-    form: ''
+    form: '',
+    firstNot: '',
+    lastNot: '',
+    emailNot: '',
+    commentsNot: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -42,7 +51,17 @@ export default (state = INITIAL_STATE, action) => {
             return _.extend({}, INITIAL_STATE, { form: 'notComing' });
         case COMING_SUBMITTED:
             return _.extend({}, INITIAL_STATE, { form: 'comingSubmitted' });
+        case NOT_FIRST_UPDATE:
+            return _.extend({}, state, { firstNot: action.payload });
+        case NOT_LAST_UPDATE:
+            return _.extend({}, state, { lastNot: action.payload });
+        case NOT_EMAIL_UPDATE:
+            return _.extend({}, state, { emailNot: action.payload });
+        case NOT_COMMENTS_UPDATE:
+            return _.extend({}, state, { commentsNot: action.payload });
+        case NOT_COMING_SUBMITTED:
+            return _.extend({}, INITIAL_STATE, { form: 'notComingSubmitted' });
         default:
-            return state;
+            return state; 
     }
 };

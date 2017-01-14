@@ -14,6 +14,8 @@ class Rsvp extends Component {
 				return <NoForm />;
 			case 'comingSubmitted':
 				return <p className="selectPar">Thank You! We'll see you at the wedding. We sent you a confirmation email with the details</p>;
+			case 'notComingSubmitted':
+				return <p className="selectPar">Sorry to hear that you are not coming. Please let us know if your response changes</p>;
 			default:
 				return <p className="selectPar">Please select yes or no</p>;
 		}

@@ -245,7 +245,6 @@ button {
 
 }
 .dashboard {
-  border: 1px solid blue;
   width: 100%;
   padding: 60px 0;
 }
@@ -264,6 +263,26 @@ button {
 }
 .guestList li:nth-child(2) {
     background: lightgray;
+}
+.dashboard p {
+  padding: 2px 10px 20px 10px;
+}
+.buttonLink {
+  border: none;
+  background: transparent;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 20px;
+  color: red;
+}
+.greenBtn {
+  color: green;
+}
+.orangeBtn {
+  color: darkorange;
+}
+.activeBtn {
+  border-bottom: 2px solid dodgerblue;
 }
 
 /* ====================================================== SMALL SCREENS ======================================================================== */

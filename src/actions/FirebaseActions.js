@@ -7,7 +7,9 @@ import {
     LOGIN_USER,
     LOGIN_USER_FAIL,
     LOGIN_USER_SUCCESS,
-    GUESTS_FETCH_SUCCESS
+    GUESTS_FETCH_SUCCESS,
+    NOT_COMING_SUBMITTED,
+    NOT_COMING_FETCH_SUCCESS
 } from './types';
 
 export const guestsFetch = () => {
@@ -15,6 +17,14 @@ export const guestsFetch = () => {
         firebase.database().ref('/users/N48vIGwpAXf0eArXwZV0iqxq3463/guests')
             .on('value', snapshot => {
                 dispatch({ type: GUESTS_FETCH_SUCCESS, payload: snapshot.val() });
+            });
+    };
+};
+export const fetchNotComing = () => {
+    return (dispatch) => {
+        firebase.database().ref('/users/N48vIGwpAXf0eArXwZV0iqxq3463/notComing')
+            .on('value', snapshot => {
+                dispatch({ type: NOT_COMING_FETCH_SUCCESS, payload: snapshot.val() });
             });
     };
 };
@@ -38,6 +48,17 @@ export const createGuest = ({ first, last, email, phone, comments, vegetarian, d
             })
             .then(() => {
                 dispatch({ type: COMING_SUBMITTED });
+            })
+            .catch((error) => console.log(error));
+    };
+};
+
+export const createNotComing = ({ firstNot, lastNot, emailNot, commentsNot }) => {
+    return (dispatch) => {
+        firebase.database().ref('/users/N48vIGwpAXf0eArXwZV0iqxq3463/notComing')
+            .push({ firstNot, lastNot, emailNot, commentsNot })
+            .then(() => {
+                dispatch({ type: NOT_COMING_SUBMITTED });
             })
             .catch((error) => console.log(error));
     };

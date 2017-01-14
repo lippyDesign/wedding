@@ -6,7 +6,11 @@ import {
     RSVP_COMMENTS_UPDATE,
     RSVP_VEGGIE_UPDATE,
     SHOW_COMING_FORM,
-    SHOW_NOT_COMING_FORM
+    SHOW_NOT_COMING_FORM,
+    NOT_COMMENTS_UPDATE,
+    NOT_EMAIL_UPDATE,
+    NOT_LAST_UPDATE,
+    NOT_FIRST_UPDATE
 } from './types';
 
 export const rsvpFirstChanged = (text) => (
@@ -60,5 +64,33 @@ export const showComingForm = () => (
 export const showNotComingForm = () => (
     {
         type: SHOW_NOT_COMING_FORM
+    }
+);
+
+export const notComingFirstChanged = (text) => (
+    {
+        type: NOT_FIRST_UPDATE,
+        payload: text
+    }
+);
+
+export const notComingLastChanged = (text) => (
+    {
+        type: NOT_LAST_UPDATE,
+        payload: text
+    }
+);
+
+export const notComingEmailChanged = (text) => (
+    {
+        type: NOT_EMAIL_UPDATE,
+        payload: text
+    }
+);
+
+export const notComingCommentsChanged = (text) => (
+    {
+        type: NOT_COMMENTS_UPDATE,
+        payload: text
     }
 );
