@@ -8,6 +8,8 @@ import img3 from '../assets/img3.jpg';
 import img4 from '../assets/img4.jpg';
 import img5 from '../assets/img5.jpg';
 import img6 from '../assets/img6.jpg';
+import img7 from '../assets/img7.jpg';
+import img8 from '../assets/img8.jpg';
 import vovaBeach from '../assets/vova-beach.jpg';
 
 export default class Photos extends Component {
@@ -21,7 +23,10 @@ export default class Photos extends Component {
             { img: vovaBeach, caption: 'Amore' },
             { img: seriousBeach, caption: 'Любовь' },
             { img: img4, caption: 'Rakkaus' },
-            { img: img5, caption: 'L\'amour' }
+            { img: img5, caption: 'L\'amour' },
+            { img: img6, caption: 'Miłość' },
+            { img: img7, caption: 'Dragoste' },
+            { img: img8, caption: 'Armastus' }
         ];
 
         return images.map(({ img, caption }, i) => (

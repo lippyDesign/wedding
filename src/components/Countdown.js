@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import moment from 'moment';
 
 class Countdown extends Component {
     constructor() {
@@ -14,7 +13,7 @@ class Countdown extends Component {
 
         this.timer = this.timer.bind(this);
     }
-    componentDidMount() {
+    componentWillMount() {
         const intervalId = setInterval(this.timer, 1000);
         this.setState({ intervalId });
     }
@@ -24,17 +23,13 @@ class Countdown extends Component {
     }
 
     timer() {
-        const eventTime = moment([2017, 7, 15]).valueOf() - 21600000;
-        const currentTime = moment().valueOf();
-        const ms = eventTime - currentTime;
-        let x = ms / 1000;
-        const seconds = Math.floor(x % 60);
-        x /= 60;
-        const minutes = Math.floor(x % 60);
-        x /= 60;
-        const hours = Math.floor(x % 24);
-        x /= 24;
-        const days = Math.floor(x);
+        const eventTime = new Date('Oct 28, 2017 17:00:00').getTime();
+        const currentTime = new Date().getTime();
+        const distance = eventTime - currentTime;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
         this.setState({ days, hours, minutes, seconds });
     }
 
