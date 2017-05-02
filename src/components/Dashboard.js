@@ -10,14 +10,16 @@ class Dashboard extends Component {
     }
 
 	getComingData() {
-		return this.props.guests.map(({ first, last, email, phone, uid, vegetarian, comments }) => {
+		return this.props.guests.map(({ first, last, email, phone, hotel, dates, uid, vegetarian, comments }) => {
 			return (
 				<li key={uid}>
-					<i className="fa fa-user" aria-hidden="true"></i> {`${first} ${last}`}<br />
-					<i className="fa fa-envelope" aria-hidden="true"></i> {email}<br />
-					<i className="fa fa-phone" aria-hidden="true"></i> {phone}<br />
-					<i className="fa fa-cutlery" aria-hidden="true"></i> {vegetarian ? 'vegetarian' : 'not vegetarian'}<br />
-					<i className="fa fa-comment" aria-hidden="true"></i> {comments}
+					<i className="fa fa-user" /> {`${first} ${last}`}<br />
+					<i className="fa fa-envelope" /> {email}<br />
+					<i className="fa fa-phone" /> {phone}<br />
+					{hotel ? <span><i className="fa fa-bed" /> {hotel}<br /></span> : ''}
+					{dates ? <span><i className="fa fa-calendar" /> {dates}<br /></span> : ''}
+					<i className="fa fa-cutlery" /> {vegetarian ? 'vegetarian' : 'not vegetarian'}<br />
+					{comments ? <span><i className="fa fa-comment" /> {comments}<br /></span> : ''}
 				</li>
 			);
 		});

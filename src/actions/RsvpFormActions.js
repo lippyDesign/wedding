@@ -3,6 +3,8 @@ import {
     RSVP_LAST_UPDATE,
     RSVP_EMAIL_UPDATE,
     RSVP_PHONE_UPDATE,
+    RSVP_HOTEL_UPDATE,
+    RSVP_DATES_UPDATE,
     RSVP_COMMENTS_UPDATE,
     RSVP_VEGGIE_UPDATE,
     SHOW_COMING_FORM,
@@ -37,6 +39,20 @@ export const rsvpEmailChanged = (text) => (
 export const rsvpPhoneChanged = (text) => (
     {
         type: RSVP_PHONE_UPDATE,
+        payload: text
+    }
+);
+
+export const rsvpHotelChanged = (text) => (
+    {
+        type: RSVP_HOTEL_UPDATE,
+        payload: text
+    }
+);
+
+export const rsvpDatesChanged = (text) => (
+    {
+        type: RSVP_DATES_UPDATE,
         payload: text
     }
 );

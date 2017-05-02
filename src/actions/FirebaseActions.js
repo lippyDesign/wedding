@@ -29,9 +29,9 @@ export const fetchNotComing = () => {
     };
 };
 
-export const createGuest = ({ first, last, email, phone, comments, vegetarian, date }) => {
+export const createGuest = ({ first, last, email, phone, hotel, dates, comments, vegetarian, date }) => {
     const sendComingEmail = () => {
-        axios.post('/contactus', { first, last, email, phone, date, comments, vegetarian })
+        axios.post('/contactus', { first, last, email, phone, hotel, dates, date, comments, vegetarian })
             .then(response => {
                 console.log(response);
             })
@@ -42,7 +42,7 @@ export const createGuest = ({ first, last, email, phone, comments, vegetarian, d
 
     return (dispatch) => {
         firebase.database().ref('/users/N48vIGwpAXf0eArXwZV0iqxq3463/guests')
-            .push({ first, last, email, phone, comments, vegetarian })
+            .push({ first, last, email, phone, hotel, dates, comments, vegetarian })
             .then(() => {
                 sendComingEmail();
             })

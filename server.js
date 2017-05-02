@@ -29,7 +29,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 app.post('/contactus', (req, res) => {
-    const { first, last, email, phone, date, comments, vegetarian } = req.body;
+    const { first, last, email, phone, date, comments, vegetarian, hotel, dates } = req.body;
     const isVeggie = vegetarian ? 'vegetarian' : 'not vegetarian';
 
     const mailOptions = {
@@ -42,6 +42,8 @@ app.post('/contactus', (req, res) => {
             <p><b>Name:</b> ${first} ${last}</p>
             <p><b>Phone:</b> ${phone}</p>
             <p><b>Email:</b> ${email}</p>
+            <p><b>Staying at:</b> ${hotel}</p>
+            <p><b>Date range:</b> ${dates}</p>
             <p><b>Date you responded:</b> ${date}</p>
             <p><b>We have your food preferences as:</b> ${isVeggie}</p>
             <p><b>Your Comments:</b> ${comments}</p>

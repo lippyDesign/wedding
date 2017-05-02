@@ -4,6 +4,8 @@ import {
     RSVP_LAST_UPDATE,
     RSVP_EMAIL_UPDATE,
     RSVP_PHONE_UPDATE,
+    RSVP_HOTEL_UPDATE,
+    RSVP_DATES_UPDATE,
     RSVP_COMMENTS_UPDATE,
     RSVP_VEGGIE_UPDATE,
     SHOW_COMING_FORM,
@@ -21,6 +23,8 @@ const INITIAL_STATE = {
     last: '',
     email: '',
     phone: '',
+    hotel: '',
+    dates: '',
     comments: '',
     vegetarian: false,
     error: '',
@@ -41,6 +45,10 @@ export default (state = INITIAL_STATE, action) => {
             return _.extend({}, state, { email: action.payload });
         case RSVP_PHONE_UPDATE:
             return _.extend({}, state, { phone: action.payload });
+        case RSVP_HOTEL_UPDATE:
+            return _.extend({}, state, { hotel: action.payload });
+        case RSVP_DATES_UPDATE:
+            return _.extend({}, state, { dates: action.payload });
         case RSVP_COMMENTS_UPDATE:
             return _.extend({}, state, { comments: action.payload });
         case RSVP_VEGGIE_UPDATE:
